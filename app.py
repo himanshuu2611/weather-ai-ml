@@ -8,6 +8,36 @@ import matplotlib.pyplot as plt
 st.markdown("""
 <style>
 
+/* popup menu box */
+div[data-baseweb="popover"] {
+    background-color: black !important;
+    color: white !important;
+}
+
+/* inside popup text */
+div[data-baseweb="popover"] * {
+    background-color: black !important;
+    color: white !important;
+}
+
+/* 3 dots menu dropdown */
+ul[role="listbox"] {
+    background-color: black !important;
+    color: white !important;
+}
+
+/* hover color */
+li:hover {
+    background-color: #222 !important;
+}
+
+</style>
+""", unsafe_allow_html=True)
+
+
+st.markdown("""
+<style>
+
 /* COMPLETE TOP BLACK */
 header {
     background-color: black !important;
@@ -223,6 +253,7 @@ ax.scatter(df["temp_max"], df["temp_min"])
 ax.set_xlabel("Max Temp")
 ax.set_ylabel("Min Temp")
 st.pyplot(fig)
+
 
 
 
