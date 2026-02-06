@@ -320,12 +320,17 @@ with col2:
 st.divider()
 st.subheader("📊 Temperature Analysis")
 
-df = pd.read_csv("dataset.csv")
-fig, ax = plt.subplots(figsize=(5,3))
-ax.scatter(df["temp_max"], df["temp_min"])
-ax.set_xlabel("Max Temp")
-ax.set_ylabel("Min Temp")
-st.pyplot(fig)
+col1, col2, col3 = st.columns([1,2,1])
+
+with col2:
+    df = pd.read_csv("dataset.csv")
+    fig, ax = plt.subplots(figsize=(4,2.5))
+    ax.scatter(df["temp_max"], df["temp_min"], color="cyan")
+    ax.set_xlabel("Max Temp", fontsize=8)
+    ax.set_ylabel("Min Temp", fontsize=8)
+    st.pyplot(fig)
+
+
 
 
 
