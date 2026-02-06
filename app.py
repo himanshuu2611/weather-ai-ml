@@ -10,37 +10,57 @@ st.set_page_config(page_title="Weather AI", layout="wide")
 st.markdown("""
 <style>
 
-/* force same theme for all devices */
-html, body, [class*="css"]  {
-    background-color: #0f2027 !important;
+/* FULL APP BACKGROUND LOCK */
+.stApp {
+    background: linear-gradient(to right, #0f2027, #203a43, #2c5364) !important;
     color: white !important;
 }
 
-.stApp {
-    background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
+/* REMOVE STREAMLIT AUTO LIGHT MODE */
+html, body, [data-testid="stAppViewContainer"] {
+    background: linear-gradient(to right, #0f2027, #203a43, #2c5364) !important;
+    color: white !important;
 }
 
-/* input boxes */
-input, textarea {
+/* TEXT */
+h1, h2, h3, h4, h5, h6, p, label, div {
+    color: white !important;
+}
+
+/* INPUT BOX */
+.stTextInput>div>div>input {
     background-color: #1e293b !important;
     color: white !important;
 }
 
-/* sidebar */
+/* NUMBER INPUT */
+.stNumberInput input {
+    background-color: #1e293b !important;
+    color: white !important;
+}
+
+/* DATE INPUT */
+.stDateInput input {
+    background-color: #1e293b !important;
+    color: white !important;
+}
+
+/* BUTTON */
+.stButton>button {
+    background-color: #00C853 !important;
+    color: white !important;
+    border-radius: 10px !important;
+    font-weight: bold !important;
+}
+
+/* SIDEBAR */
 section[data-testid="stSidebar"] {
     background-color: #111827 !important;
 }
 
-/* buttons */
-.stButton>button {
-    background-color: #00C853 !important;
-    color: white !important;
-    border-radius: 10px;
-    font-weight: bold;
-}
-
 </style>
 """, unsafe_allow_html=True)
+
 
 
 
@@ -182,6 +202,7 @@ ax.scatter(df["temp_max"], df["temp_min"])
 ax.set_xlabel("Max Temp")
 ax.set_ylabel("Min Temp")
 st.pyplot(fig)
+
 
 
 
