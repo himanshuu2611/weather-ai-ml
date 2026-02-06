@@ -5,6 +5,27 @@ import pickle
 import requests
 import matplotlib.pyplot as plt
 
+st.markdown("""
+<style>
+
+/* COMPLETE TOP BLACK */
+header {
+    background-color: black !important;
+}
+
+[data-testid="stHeader"] {
+    background-color: black !important;
+}
+
+/* remove top gap */
+.block-container {
+    padding-top: 1rem !important;
+}
+
+</style>
+""", unsafe_allow_html=True)
+
+
 st.set_page_config(page_title="Weather AI", layout="wide")
 
 st.markdown("""
@@ -202,6 +223,7 @@ ax.scatter(df["temp_max"], df["temp_min"])
 ax.set_xlabel("Max Temp")
 ax.set_ylabel("Min Temp")
 st.pyplot(fig)
+
 
 
 
