@@ -5,24 +5,43 @@ import pickle
 import requests
 import matplotlib.pyplot as plt
 
+st.set_page_config(page_title="Weather AI", layout="wide")
+
 st.markdown("""
 <style>
+
+/* force same theme for all devices */
+html, body, [class*="css"]  {
+    background-color: #0f2027 !important;
+    color: white !important;
+}
+
 .stApp {
     background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
-    color: white;
 }
 
-[data-testid="stSidebar"] {
-    background-color: #111827;
+/* input boxes */
+input, textarea {
+    background-color: #1e293b !important;
+    color: white !important;
 }
 
+/* sidebar */
+section[data-testid="stSidebar"] {
+    background-color: #111827 !important;
+}
+
+/* buttons */
 .stButton>button {
-    background-color: #00C853;
-    color: white;
-    border-radius: 8px;
+    background-color: #00C853 !important;
+    color: white !important;
+    border-radius: 10px;
+    font-weight: bold;
 }
+
 </style>
 """, unsafe_allow_html=True)
+
 
 
 # ---------- PAGE CONFIG ----------
@@ -163,6 +182,7 @@ ax.scatter(df["temp_max"], df["temp_min"])
 ax.set_xlabel("Max Temp")
 ax.set_ylabel("Min Temp")
 st.pyplot(fig)
+
 
 
 
