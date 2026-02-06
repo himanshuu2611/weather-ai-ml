@@ -5,154 +5,68 @@ import pickle
 import requests
 import matplotlib.pyplot as plt
 
-st.markdown("""
-<style>
+import streamlit as st
 
-/* popup menu box */
-div[data-baseweb="popover"] {
-    background-color: black !important;
-    color: white !important;
-}
-
-/* inside popup text */
-div[data-baseweb="popover"] * {
-    background-color: black !important;
-    color: white !important;
-}
-
-/* 3 dots menu dropdown */
-ul[role="listbox"] {
-    background-color: black !important;
-    color: white !important;
-}
-
-/* hover color */
-li:hover {
-    background-color: #222 !important;
-}
-
-</style>
-""", unsafe_allow_html=True)
-
-
-st.markdown("""
-<style>
-
-/* COMPLETE TOP BLACK */
-header {
-    background-color: black !important;
-}
-
-[data-testid="stHeader"] {
-    background-color: black !important;
-}
-
-/* remove top gap */
-.block-container {
-    padding-top: 1rem !important;
-}
-
-</style>
-""", unsafe_allow_html=True)
-
-
+# ---- PAGE CONFIG (ONLY ONE TIME) ----
 st.set_page_config(page_title="Weather AI", layout="wide")
 
+# ---- FINAL LOCK UI ----
 st.markdown("""
 <style>
 
-/* FULL APP BACKGROUND LOCK */
+/* background full lock */
 .stApp {
-    background: linear-gradient(to right, #0f2027, #203a43, #2c5364) !important;
-    color: white !important;
+    background: linear-gradient(to right,#0f2027,#203a43,#2c5364) !important;
+    color:white !important;
 }
 
-/* REMOVE STREAMLIT AUTO LIGHT MODE */
-html, body, [data-testid="stAppViewContainer"] {
-    background: linear-gradient(to right, #0f2027, #203a43, #2c5364) !important;
-    color: white !important;
+/* top bar black */
+header[data-testid="stHeader"]{
+    background:black !important;
 }
 
-/* TEXT */
-h1, h2, h3, h4, h5, h6, p, label, div {
-    color: white !important;
+/* sidebar */
+section[data-testid="stSidebar"]{
+    background-color:#111827 !important;
 }
 
-/* INPUT BOX */
-.stTextInput>div>div>input {
-    background-color: #1e293b !important;
-    color: white !important;
+/* text */
+h1,h2,h3,h4,h5,h6,p,label,div{
+    color:white !important;
 }
 
-/* NUMBER INPUT */
-.stNumberInput input {
-    background-color: #1e293b !important;
-    color: white !important;
+/* input boxes */
+.stTextInput input,
+.stNumberInput input,
+.stDateInput input{
+    background:#1e293b !important;
+    color:white !important;
+    border-radius:8px !important;
 }
 
-/* DATE INPUT */
-.stDateInput input {
-    background-color: #1e293b !important;
-    color: white !important;
+/* button */
+.stButton>button{
+    background:#00C853 !important;
+    color:white !important;
+    border-radius:10px !important;
+    font-weight:bold;
 }
 
-/* BUTTON */
-.stButton>button {
-    background-color: #00C853 !important;
-    color: white !important;
-    border-radius: 10px !important;
-    font-weight: bold !important;
+/* popup menu */
+div[data-baseweb="popover"]{
+    background:black !important;
+    color:white !important;
 }
 
-/* SIDEBAR */
-section[data-testid="stSidebar"] {
-    background-color: #111827 !important;
+div[data-baseweb="popover"] *{
+    color:white !important;
 }
 
 </style>
 """, unsafe_allow_html=True)
-
-
-
-
-# ---------- PAGE CONFIG ----------
-st.set_page_config(page_title="Weather AI", layout="wide")
 
 st.title("🌦 AI/ML Weather Prediction System")
 
-# ---------- UI SIZE CONTROL ----------
-st.markdown("""
-<style>
-
-.block-container{
-    padding-top: 2rem;
-    padding-bottom: 1rem;
-    max-width: 1100px;
-}
-
-h1{
-    font-size:28px !important;
-}
-
-h2{
-    font-size:22px !important;
-}
-
-h3{
-    font-size:18px !important;
-}
-
-label{
-    font-size:14px !important;
-}
-
-.stButton>button{
-    height:35px;
-    font-size:14px;
-}
-
-</style>
-""", unsafe_allow_html=True)
 
 
 # ---------- LOAD MODEL ----------
@@ -253,6 +167,7 @@ ax.scatter(df["temp_max"], df["temp_min"])
 ax.set_xlabel("Max Temp")
 ax.set_ylabel("Min Temp")
 st.pyplot(fig)
+
 
 
 
