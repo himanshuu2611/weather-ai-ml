@@ -5,6 +5,79 @@ import pickle
 import requests
 import matplotlib.pyplot as plt
 
+# ---- PAGE CONFIG ----
+st.set_page_config(page_title="Weather AI", layout="wide")
+
+# ---- APPLE GLASS UI ----
+st.markdown("""
+<style>
+
+/* MAIN BACKGROUND */
+.stApp {
+    background: linear-gradient(135deg,#0f2027,#203a43,#2c5364) !important;
+    color:white !important;
+}
+
+/* GLASS CARD MAIN */
+.block-container {
+    background: rgba(255,255,255,0.06);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border-radius: 20px;
+    padding: 30px;
+    border: 1px solid rgba(255,255,255,0.18);
+    box-shadow: 0 8px 32px rgba(0,0,0,0.5);
+}
+
+/* TEXT */
+h1,h2,h3,h4,h5,h6,p,label,div{
+    color:white !important;
+}
+
+/* INPUT GLASS */
+.stTextInput input,
+.stNumberInput input,
+.stDateInput input{
+    background: rgba(0,0,0,0.4) !important;
+    color:white !important;
+    border-radius:12px !important;
+    border:1px solid rgba(255,255,255,0.2) !important;
+}
+
+/* BUTTON GLASS */
+.stButton>button{
+    background: linear-gradient(135deg,#00C853,#00E676) !important;
+    color:white !important;
+    border-radius:12px !important;
+    border:none !important;
+    font-weight:bold !important;
+    padding:10px 20px;
+    box-shadow:0 4px 20px rgba(0,0,0,0.4);
+}
+
+/* SIDEBAR GLASS */
+section[data-testid="stSidebar"]{
+    background: rgba(0,0,0,0.6) !important;
+    backdrop-filter: blur(10px);
+}
+
+/* TOP BAR BLACK */
+header[data-testid="stHeader"]{
+    background:black !important;
+}
+
+/* POPUP MENU */
+div[data-baseweb="popover"]{
+    background:black !important;
+    color:white !important;
+}
+div[data-baseweb="popover"] *{
+    color:white !important;
+}
+
+</style>
+""", unsafe_allow_html=True)
+
 st.markdown("""
 <style>
 
@@ -253,6 +326,7 @@ ax.scatter(df["temp_max"], df["temp_min"])
 ax.set_xlabel("Max Temp")
 ax.set_ylabel("Min Temp")
 st.pyplot(fig)
+
 
 
 
