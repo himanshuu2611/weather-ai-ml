@@ -178,8 +178,8 @@ with col1:
 
     date = st.date_input("Select Date")
     precipitation = st.number_input("Precipitation",0.0,100.0)
-    high_temp = st.number_input("High Temperature",0.0,60.0)
-    low_temp = st.number_input("Low Temperature",-10.0,50.0)
+    high_temp = st.number_input("High Temperature",25,60.0)
+    low_temp = st.number_input("Low Temperature",15.0,50.0)
     wind = st.number_input("Wind Speed",0.0,50.0)
 
     if st.button("Predict Manual Weather"):
@@ -253,6 +253,7 @@ ax.scatter(df["temp_max"], df["temp_min"])
 ax.set_xlabel("Max Temp")
 ax.set_ylabel("Min Temp")
 st.pyplot(fig)
+
 
 
 
