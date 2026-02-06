@@ -5,10 +5,10 @@ import pickle
 import requests
 import matplotlib.pyplot as plt
 
-# ---- PAGE CONFIG (only once) ----
+# ---- PAGE CONFIG ----
 st.set_page_config(page_title="Weather AI", layout="wide")
 
-# ---- FINAL APPLE GLASS + DARK UI ----
+# ---- APPLE GLASS UI ----
 st.markdown("""
 <style>
 
@@ -18,7 +18,7 @@ st.markdown("""
     color:white !important;
 }
 
-/* GLASS CARD */
+/* GLASS CARD MAIN */
 .block-container {
     background: rgba(255,255,255,0.06);
     backdrop-filter: blur(14px);
@@ -34,7 +34,7 @@ h1,h2,h3,h4,h5,h6,p,label,div{
     color:white !important;
 }
 
-/* INPUT BOX */
+/* INPUT GLASS */
 .stTextInput input,
 .stNumberInput input,
 .stDateInput input{
@@ -44,7 +44,7 @@ h1,h2,h3,h4,h5,h6,p,label,div{
     border:1px solid rgba(255,255,255,0.2) !important;
 }
 
-/* BUTTON */
+/* BUTTON GLASS */
 .stButton>button{
     background: linear-gradient(135deg,#00C853,#00E676) !important;
     color:white !important;
@@ -55,7 +55,7 @@ h1,h2,h3,h4,h5,h6,p,label,div{
     box-shadow:0 4px 20px rgba(0,0,0,0.4);
 }
 
-/* SIDEBAR */
+/* SIDEBAR GLASS */
 section[data-testid="stSidebar"]{
     background: rgba(0,0,0,0.6) !important;
     backdrop-filter: blur(10px);
@@ -75,12 +75,111 @@ div[data-baseweb="popover"] *{
     color:white !important;
 }
 
-ul[role="listbox"]{
-    background:black !important;
-    color:white !important;
+</style>
+""", unsafe_allow_html=True)
+
+st.markdown("""
+<style>
+
+/* popup menu box */
+div[data-baseweb="popover"] {
+    background-color: black !important;
+    color: white !important;
 }
-li:hover{
-    background:#222 !important;
+
+/* inside popup text */
+div[data-baseweb="popover"] * {
+    background-color: black !important;
+    color: white !important;
+}
+
+/* 3 dots menu dropdown */
+ul[role="listbox"] {
+    background-color: black !important;
+    color: white !important;
+}
+
+/* hover color */
+li:hover {
+    background-color: #222 !important;
+}
+
+</style>
+""", unsafe_allow_html=True)
+
+
+st.markdown("""
+<style>
+
+/* COMPLETE TOP BLACK */
+header {
+    background-color: black !important;
+}
+
+[data-testid="stHeader"] {
+    background-color: black !important;
+}
+
+/* remove top gap */
+.block-container {
+    padding-top: 1rem !important;
+}
+
+</style>
+""", unsafe_allow_html=True)
+
+
+st.set_page_config(page_title="Weather AI", layout="wide")
+
+st.markdown("""
+<style>
+
+/* FULL APP BACKGROUND LOCK */
+.stApp {
+    background: linear-gradient(to right, #0f2027, #203a43, #2c5364) !important;
+    color: white !important;
+}
+
+/* REMOVE STREAMLIT AUTO LIGHT MODE */
+html, body, [data-testid="stAppViewContainer"] {
+    background: linear-gradient(to right, #0f2027, #203a43, #2c5364) !important;
+    color: white !important;
+}
+
+/* TEXT */
+h1, h2, h3, h4, h5, h6, p, label, div {
+    color: white !important;
+}
+
+/* INPUT BOX */
+.stTextInput>div>div>input {
+    background-color: #1e293b !important;
+    color: white !important;
+}
+
+/* NUMBER INPUT */
+.stNumberInput input {
+    background-color: #1e293b !important;
+    color: white !important;
+}
+
+/* DATE INPUT */
+.stDateInput input {
+    background-color: #1e293b !important;
+    color: white !important;
+}
+
+/* BUTTON */
+.stButton>button {
+    background-color: #00C853 !important;
+    color: white !important;
+    border-radius: 10px !important;
+    font-weight: bold !important;
+}
+
+/* SIDEBAR */
+section[data-testid="stSidebar"] {
+    background-color: #111827 !important;
 }
 
 </style>
@@ -230,6 +329,7 @@ with col2:
     ax.set_xlabel("Max Temp", fontsize=8)
     ax.set_ylabel("Min Temp", fontsize=8)
     st.pyplot(fig)
+
 
 
 
