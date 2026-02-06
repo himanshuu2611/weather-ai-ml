@@ -5,6 +5,26 @@ import pickle
 import requests
 import matplotlib.pyplot as plt
 
+st.markdown("""
+<style>
+.stApp {
+    background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
+    color: white;
+}
+
+[data-testid="stSidebar"] {
+    background-color: #111827;
+}
+
+.stButton>button {
+    background-color: #00C853;
+    color: white;
+    border-radius: 8px;
+}
+</style>
+""", unsafe_allow_html=True)
+
+
 # ---------- PAGE CONFIG ----------
 st.set_page_config(page_title="Weather AI", layout="wide")
 
@@ -143,5 +163,6 @@ ax.scatter(df["temp_max"], df["temp_min"])
 ax.set_xlabel("Max Temp")
 ax.set_ylabel("Min Temp")
 st.pyplot(fig)
+
 
 
