@@ -13,15 +13,13 @@ def rain_effect():
     rain_html = """
     <style>
     .rain {
-        position: absolute;   /* changed from fixed */
+        position: fixed;
         width: 100%;
         height: 100%;
         top: 0;
         left: 0;
         pointer-events: none;
         z-index: 999;
-        overflow: hidden;
-        border-radius: 20px;
     }
 
     .drop {
@@ -35,7 +33,7 @@ def rain_effect():
 
     @keyframes fall {
         to {
-            transform: translateY(400px);
+            transform: translateY(100vh);
         }
     }
     </style>
@@ -43,8 +41,9 @@ def rain_effect():
     <div class="rain">
     """
     
+    # create multiple drops
     for i in range(100):
-        rain_html += f'<div class="drop" style="left:{i*1.3}%; animation-duration:{0.6 + (i%5)*0.2}s"></div>'
+        rain_html += f'<div class="drop" style="left:{i*1.5}%; animation-duration:{0.5 + (i%5)*0.2}s"></div>'
     
     rain_html += "</div>"
     st.markdown(rain_html, unsafe_allow_html=True)
