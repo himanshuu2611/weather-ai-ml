@@ -14,38 +14,47 @@ def rain_effect():
     <style>
     .rain {
         position: fixed;
-        width: 100%;
-        height: 100%;
+        width: 100vw;
+        height: 100vh;
         top: 0;
         left: 0;
         pointer-events: none;
-        z-index: 999;
+        z-index: 9999;
+        overflow: hidden;
     }
 
     .drop {
         position: absolute;
-        bottom: 100%;
+        top: -100px;
         width: 2px;
         height: 60px;
         background: linear-gradient(transparent, #00bfff);
         animation: fall linear infinite;
+        opacity: 0.8;
     }
 
     @keyframes fall {
-        to {
-            transform: translateY(100vh);
-        }
+        to { transform: translateY(110vh); }
     }
     </style>
 
-    <div class="rain">
+    <div class="rain" id="rainEffect">
     """
-    
-    # create multiple drops
-    for i in range(100):
-        rain_html += f'<div class="drop" style="left:{i*1.5}%; animation-duration:{0.5 + (i%5)*0.2}s"></div>'
-    
-    rain_html += "</div>"
+
+    for i in range(120):
+        rain_html += f'<div class="drop" style="left:{i*0.8}%; animation-duration:{0.5 + (i%5)*0.2}s"></div>'
+
+    rain_html += """
+    </div>
+
+    <script>
+    setTimeout(function(){
+        var rain = document.getElementById("rainEffect");
+        if(rain){ rain.remove(); }
+    }, 1000);  // 1 second rain
+    </script>
+    """
+
     st.markdown(rain_html, unsafe_allow_html=True)
 
 
@@ -318,8 +327,7 @@ with col1:
         # ---- RAIN ANIMATION ----
         if result[0].lower() == "rain":
             rain_effect()
-            time.sleep(1)
-            
+
 
 # ================= RIGHT SIDE LIVE API =================
 with col2:
@@ -381,6 +389,7 @@ with col2:
     ax.set_xlabel("Max Temp", fontsize=8)
     ax.set_ylabel("Min Temp", fontsize=8)
     st.pyplot(fig)
+
 
 
 
