@@ -9,7 +9,7 @@ import matplotlib.pyplot as plt
 
 import time
 
-def rain_effect():
+def rain_effect(placeholder):
     rain_html = """
     <style>
     .rain {
@@ -38,24 +38,15 @@ def rain_effect():
     }
     </style>
 
-    <div class="rain" id="rainEffect">
+    <div class="rain">
     """
 
     for i in range(120):
         rain_html += f'<div class="drop" style="left:{i*0.8}%; animation-duration:{0.5 + (i%5)*0.2}s"></div>'
 
-    rain_html += """
-    </div>
+    rain_html += "</div>"
 
-    <script>
-    setTimeout(function(){
-        var rain = document.getElementById("rainEffect");
-        if(rain){ rain.remove(); }
-    }, 1000);  // 1 second rain
-    </script>
-    """
-
-    st.markdown(rain_html, unsafe_allow_html=True)
+    placeholder.markdown(rain_html, unsafe_allow_html=True)
 
 
 # rain animation end
@@ -324,9 +315,13 @@ with col1:
 
         st.success(f"🌤 Predicted Weather: {result[0]}")
 
-        # ---- RAIN ANIMATION ----
+       # create empty placeholder
+        rain_placeholder = st.empty()
+        
         if result[0].lower() == "rain":
-            rain_effect()
+            rain_effect(rain_placeholder)  # rain show
+            time.sleep(1)                  # 1 sec
+            rain_placeholder.empty()       # rain remove
 
 
 # ================= RIGHT SIDE LIVE API =================
@@ -389,6 +384,7 @@ with col2:
     ax.set_xlabel("Max Temp", fontsize=8)
     ax.set_ylabel("Min Temp", fontsize=8)
     st.pyplot(fig)
+
 
 
 
