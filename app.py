@@ -43,7 +43,7 @@ def rain_effect():
     
     # create multiple drops
     for i in range(100):
-        rain_html += f'<div class="drop" style="left:{i*0.8}%; animation-duration:{0.5 + (i%5)*0.2}s"></div>'
+        rain_html += f'<div class="drop" style="left:{i*1.7}%; animation-duration:{0.5 + (i%5)*0.2}s"></div>'
     
     rain_html += "</div>"
     st.markdown(rain_html, unsafe_allow_html=True)
@@ -381,6 +381,7 @@ with col2:
     ax.set_xlabel("Max Temp", fontsize=8)
     ax.set_ylabel("Min Temp", fontsize=8)
     st.pyplot(fig)
+
 
 
 
