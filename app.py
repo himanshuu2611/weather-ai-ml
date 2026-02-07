@@ -319,7 +319,7 @@ with col1:
         if result[0].lower() == "rain":
             rain_effect()
             time.sleep(1)
-            st.rerun()
+            
 
 # ================= RIGHT SIDE LIVE API =================
 with col2:
@@ -381,6 +381,7 @@ with col2:
     ax.set_xlabel("Max Temp", fontsize=8)
     ax.set_ylabel("Min Temp", fontsize=8)
     st.pyplot(fig)
+
 
 
 
