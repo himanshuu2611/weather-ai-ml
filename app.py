@@ -5,6 +5,52 @@ import pickle
 import requests
 import matplotlib.pyplot as plt
 
+# rain animation
+
+import time
+
+def rain_effect():
+    rain_html = """
+    <style>
+    .rain {
+        position: fixed;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        pointer-events: none;
+        z-index: 999;
+    }
+
+    .drop {
+        position: absolute;
+        bottom: 100%;
+        width: 2px;
+        height: 60px;
+        background: linear-gradient(transparent, #00bfff);
+        animation: fall linear infinite;
+    }
+
+    @keyframes fall {
+        to {
+            transform: translateY(100vh);
+        }
+    }
+    </style>
+
+    <div class="rain">
+    """
+    
+    # create multiple drops
+    for i in range(100):
+        rain_html += f'<div class="drop" style="left:{i*1.5}%; animation-duration:{0.5 + (i%5)*0.2}s"></div>'
+    
+    rain_html += "</div>"
+    st.markdown(rain_html, unsafe_allow_html=True)
+
+
+# rain animation end
+
 # ---- PAGE CONFIG ----
 st.set_page_config(page_title="Weather AI", layout="wide")
 
@@ -269,6 +315,12 @@ with col1:
 
         st.success(f"🌤 Predicted Weather: {result[0]}")
 
+        # ---- RAIN ANIMATION ----
+        if result[0].lower() == "rain":
+            rain_effect()
+            time.sleep(1)
+            st.rerun()
+
 # ================= RIGHT SIDE LIVE API =================
 with col2:
     st.header("🌍 Live City Weather (Real Time)")
@@ -329,6 +381,7 @@ with col2:
     ax.set_xlabel("Max Temp", fontsize=8)
     ax.set_ylabel("Min Temp", fontsize=8)
     st.pyplot(fig)
+
 
 
 
