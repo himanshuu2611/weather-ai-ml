@@ -1,3 +1,5 @@
+![Uploading image.png…]()
+
 Weather-Prediction-Using-Machine-Learning
 Introduction:
 Weather prediction is a crucial aspect of daily life, affecting everything from agriculture to transportation to emergency preparedness. While traditional forecasting methods have come a long way, there is still much room for improvement in accuracy and efficiency. In recent years, machine learning (ML) has emerged as a promising approach to weather prediction. By leveraging the vast amounts of data collected from weather stations around the world, ML models can analyze complex patterns and relationships to make more accurate and timely predictions.
