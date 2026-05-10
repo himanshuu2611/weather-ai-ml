@@ -1,4 +1,5 @@
-![Uploading image.png…]()
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/fdbc2391-0bb5-4e67-b8fd-677164276f55" />
+
 
 Weather-Prediction-Using-Machine-Learning
 Introduction:
